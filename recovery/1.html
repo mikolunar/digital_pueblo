@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+  <h3>{{ item.title }}</h3>
+  <h4>{{ item.subtitle }}</h4>
+
+  <p>{{ item.email }}</p>
+  <p>{{ item.location }}</p>
+
+  <a
+    class="btn btn-outline-primary"
+    href="{% url 'anuncio_edit' item.pk %}"
+  >
+    Edit
+    </a>
+  </button>
+  <a class="btn btn-outline-secondary" href="{% url 'anuncios' %}">Close</button>
+  <a class="btn btn-outline-warning" href="/anuncio_rem/{{ item.pk }}"
+    >Remove</a
+  >
+</div>
+
+{% endblock %}

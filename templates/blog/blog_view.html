@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="d-flex justify-content-center">
+  <div class="shadow m-2 p-5 w-50">
+    <div>
+      {% for key, value in item.items %} {% if key == 'title' %}
+
+      <h3 class="headers">{{ key.title }} : {{ value }}</h3>
+      {% else %} {% if key != 'id' %}
+
+      <p>{{ key.title }} : {{ value }}</p>
+
+      {% endif %} {% endif %} {% endfor %}
+    </div>
+
+    <a href="{% url 'blog_home' %}" class="btn btn-outline-primary">Close</a>
+    <a href="{% url 'blog_edit' id %}" class="btn btn-outline-primary">Edit</a>
+  </div>
+</div>
+
+{% endblock %}
