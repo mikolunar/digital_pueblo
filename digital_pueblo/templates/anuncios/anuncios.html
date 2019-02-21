@@ -1,18 +1,23 @@
 {% extends 'base.html' %} {%block content %}
 
-<div class="d-flex justify-content-start border-bottom m-2">
-  <h2>Anuncios</h2>
-</div>
-<div class="d-flex flex-column m-2">
-  {% for item in context %}
-  <div class="mb-2">
-    <h3>
-      <a href="/anuncio/{{ item.pk }}" class="headers"> {{ item.title }} </a>
-    </h3>
-    <p>Subtitle: {{ item.subtitle }}</p>
-    <p>ID:{{ item.pk }}</p>
+<div class="d-flex justify-content-center">
+  <div class="shadow m-2 p-5 w-50">
+    <h2>Anuncios</h2>
+
+    <div class="d-flex flex-column m-2">
+      {% for item in context %}
+      <div class="mb-2">
+        <h3>
+          <a href="/anuncio/{{ item.pk }}" class="headers">
+            {{ item.title }}
+          </a>
+        </h3>
+        <p>Subtitle: {{ item.subtitle }}</p>
+        <p>ID:{{ item.pk }}</p>
+      </div>
+      {% endfor %}
+    </div>
   </div>
-  {% endfor %}
 </div>
 
 {%endblock %}

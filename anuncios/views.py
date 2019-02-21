@@ -51,12 +51,15 @@ def anuncioEdit(request, pk):
 
     if request.method == 'POST':
 
-        form = EditAnuncioForm(request.POST)
+        instance = get_object_or_404(Anuncio, pk=int(pk))
+        form = EditAnuncioForm(request.POST, instance=instance)
 
         if form.is_valid():
-            form.save()  # it breaks here
+            print("SAVING")
+            post = form.save()  # it breaks here
+            post.save()
             messages.success(request, f'Anuncio saved!')
-            return redirect('anuncios')
+            return redirect('anuncio_view', pk)
 
         else:
             item = {}

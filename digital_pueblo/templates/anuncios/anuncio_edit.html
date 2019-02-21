@@ -1,13 +1,11 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-TEST
-{{item.title}}
 
 <div class="d-flex border align-items-start shadow m-2 p-5 flex-wrap">
   <div class="m-2 p-2 flex-grow-1">
     <h5>Edit Anuncio</h5>
 
     <h4 class="headers">
-      <a href="{% url 'anuncio' item.id %}"> {{ item.title }} </a>
+      <a href="{% url 'anuncio_view' item.id %}"> {{ item.title }} </a>
     </h4>
 
     <form method="POST">
@@ -65,7 +63,11 @@ TEST
         >
           Save
         </button>
-        <a class="btn btn-outline-secondary">Cancel</a>
+        <a
+          class="btn btn-outline-secondary"
+          href="{% url 'anuncio_view' item.pk %}"
+          >Cancel</a
+        >
       </div>
     </form>
   </div>

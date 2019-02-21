@@ -1,16 +1,20 @@
 {% extends 'base.html' %} {% block content%}
 
-<div>
-  <h3>Are you sure you want to remove this Anuncio?</h3>
-  <p>{{ item.title }}</p>
-  <form>
-    <a class="btn btn-outline-danger" href="{% url 'anuncio_del' item.pk %}"
-      >Yes
-    </a>
-    <a class="btn btn-outline-primary" href="{% url 'anuncio' item.pk  %}"
-      >Cancel</a
-    >
-  </form>
+<div class="d-flex justify-content-center">
+  <div class="shadow m-2 p-5">
+    <h3 class="text-danger">Are you sure you want to remove this Anuncio?</h3>
+    <p>{{ item.title }}</p>
+    <form>
+      <a class="btn btn-outline-danger" href="{% url 'anuncio_del' item.pk %}"
+        >Yes
+      </a>
+      <a
+        class="btn btn-outline-primary"
+        href="{% url 'anuncio_view' item.pk  %}"
+        >Cancel</a
+      >
+    </form>
+  </div>
 </div>
 
 {% endblock %}

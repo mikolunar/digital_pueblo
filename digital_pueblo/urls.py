@@ -24,16 +24,21 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('anuncios/', anuncios_views.AnunciosListAPI.as_view(),
+    path('api/anuncios/', anuncios_views.AnunciosListAPI.as_view(),
          name='anuncios_list_api'),
-    path('anuncio/<int:pk>/', anuncios_views.AnunciosDetailsAPI.as_view(),
+    path('anuncios/', anuncios_views.anunciosView, name='anuncios'),
+    path('api/anuncio/<int:pk>/', anuncios_views.AnunciosDetailsAPI.as_view(),
          name='anuncio_details'),
+    path('anuncio/<int:pk>/', anuncios_views.anuncioView, name='anuncio_view'),
+    path('anuncio_rem/<int:pk>', anuncios_views.anuncioRem, name='anuncio_rem'),
+    path('anuncio_del/<int:pk>', anuncios_views.anuncioDel, name='anuncio_del'),
+    path('anuncio_edit/<int:pk>', anuncios_views.anuncioEdit, name='anuncio_edit'),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('blog/', TemplateView.as_view(template_name='blog/blog.html'), name='blog_home'),
-    path('anuncio_new/', TemplateView.as_view(template_name='blog/blog.html'),
+    path('anuncio_new/', anuncios_views.anuncioNew,
          name='anuncio_new'),
-    path('anuncios/', TemplateView.as_view(template_name='blog/blog.html'),
-         name='anuncios'),
+    path('api/anuncios/', TemplateView.as_view(template_name='blog/blog.html'),
+         name='anuncios_api'),
     path('contact/', TemplateView.as_view(template_name='blog/blog.html'), name='contact'),
-    path('register/', user_views.register, name='register' )
+    path('register/', user_views.register, name='register')
 ]
