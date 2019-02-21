@@ -39,6 +39,6 @@ urlpatterns = [
          name='anuncio_new'),
     path('api/anuncios/', TemplateView.as_view(template_name='blog/blog.html'),
          name='anuncios_api'),
-    path('contact/', TemplateView.as_view(template_name='blog/blog.html'), name='contact'),
+    path('contact/', TemplateView.as_view(template_name='contact.html'), name='contact'),
     path('register/', user_views.register, name='register')
 ]
