@@ -1,0 +1,16 @@
+<!-- templates/registration/login.html -->
+
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+<div class="d-flex justify-content-center">
+  <div class="m-2 p-5 shadow">
+    <h5 class="headers">Register</h5>
+
+    <form method="post" action="{% url 'register' %}">
+      <div class="form-group">{% csrf_token %} {{ form | crispy }}</div>
+      <button class="btn btn-warning mt-2" type="submit" value="Register">
+        Register
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

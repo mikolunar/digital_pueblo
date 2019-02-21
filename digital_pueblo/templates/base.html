@@ -38,8 +38,17 @@
         <a class="p-2" href="{% url 'anuncios' %} ">Anuncios</a>
         <a class="p-2" href="{% url 'blog_home' %}">Blog</a>
         <a class="p-2" href="{% url 'contact' %}">Contact</a>
+        <a class="p-2" href="{% url 'register' %}">Register</a>
       </nav>
-      <a class="btn btn-outline-light" href="#">Sign up</a>
+      {% if user.is_authenticated %}
+      <nav class="my-2 my-md mr-md-3">
+        <a href="#">Hi {{ user.username }}! </a>
+      </nav>
+      <a class="btn btn-outline-warning" href="{% url 'logout' %}">Logout</a>
+      {% else %}
+      <a class="btn btn-outline-light" href="{% url 'login' %}">Sign In</a>
+
+      {% endif %}
     </div>
     {% if messages %}
     <!-- autoformatter -->

@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+TEST
+{{item.title}}
+
+<div class="d-flex border align-items-start shadow m-2 p-5 flex-wrap">
+  <div class="m-2 p-2 flex-grow-1">
+    <h5>Edit Anuncio</h5>
+
+    <h4 class="headers">
+      <a href="{% url 'anuncio' item.id %}"> {{ item.title }} </a>
+    </h4>
+
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          class="form-control"
+          value="{{ item.title }}"
+          id="title"
+          name="title"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="subtitle">Subtitle:</label>
+        <input
+          id="subtitle"
+          type="text"
+          class="form-control"
+          value="{{ item.subtitle }}"
+          name="subtitle"
+        />
+      </div>
+      <div class="form-group">
+        <label for="subtitle">Email:</label>
+        <input
+          id="email"
+          type="text"
+          class="form-control"
+          value="{{ item.email }}"
+          name="email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="subtitle">Location:</label>
+        <input
+          id="location"
+          type="text"
+          class="form-control"
+          value="{{ item.location }}"
+          name="location"
+        />
+      </div>
+
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-outline-primary"
+          href="{% url 'anuncio_edit' item.pk %}"
+        >
+          Save
+        </button>
+        <a class="btn btn-outline-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+  <div class="m-2 p-2 flex-shrink-1">
+    <p>Instructions how to save and edit Anuncio</p>
+
+    <img src="{% static 'img1.jpg' %}" style />
+  </div>
+</div>
+
+{% endblock %}

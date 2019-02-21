@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content%}
+
+<div>
+  <h3>Are you sure you want to remove this Anuncio?</h3>
+  <p>{{ item.title }}</p>
+  <form>
+    <a class="btn btn-outline-danger" href="{% url 'anuncio_del' item.pk %}"
+      >Yes
+    </a>
+    <a class="btn btn-outline-primary" href="{% url 'anuncio' item.pk  %}"
+      >Cancel</a
+    >
+  </form>
+</div>
+
+{% endblock %}
