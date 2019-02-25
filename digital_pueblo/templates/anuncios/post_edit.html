@@ -2,13 +2,17 @@
 
 <div class="d-flex justify-content-center">
   <div class="shadow m-2 p-5">
-    <div class="d-flex"><h3>New anuncio</h3></div>
+    {% if user.is_authenticated %}
+    <div class="d-flex"><h3 class="headers">Add new anuncio!</h3></div>
 
     <form class="post-form" method="POST">
       {% csrf_token %} {{ form | crispy }}
-      <button type="submit" class="save btn btn-warning">Save</button>
+      <button type="submit" class="btn btn-primary">Save</button>
       <button type="cancel" class="btn btn-light">Cancel</button>
     </form>
+    {% else %}
+    <h3 class=" text-info ">Sign Up to create adds</h3>
+    {% endif %}
   </div>
 </div>
 {% endblock %}

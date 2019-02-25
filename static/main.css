@@ -1,5 +1,5 @@
 .page-header {
-  background-color: #ff9400;
+  background-color: coral;
   color: #ffffff;
 }
 
@@ -62,4 +62,14 @@ h5 {
   font-size: 25px;
   line-height: 1.42;
   border-radius: 30px;
+}
+
+.btn-primary {
+  background-color: coral;
+  border-color: coral;
+}
+
+.btn-primary:hover {
+  background-color: rgb(255, 92, 80);
+  border-color: rgb(255, 92, 80);
 }

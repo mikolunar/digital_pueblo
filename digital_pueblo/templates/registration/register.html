@@ -3,7 +3,7 @@
 {% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
 <div class="d-flex justify-content-center">
   <div class="m-2 p-5 shadow">
-    <h5 class="headers">Register</h5>
+    <h5 class="headers">Sing Up!</h5>
 
     <form method="post" action="{% url 'register' %}">
       <div class="form-group">{% csrf_token %} {{ form | crispy }}</div>

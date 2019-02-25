@@ -1,5 +1,5 @@
 .page-header {
-  background-color: #ff9400;
+  background-color: #9dff00;
   color: #ffffff;
 }
 
@@ -62,4 +62,13 @@ h5 {
   font-size: 25px;
   line-height: 1.42;
   border-radius: 30px;
+}
+
+.btn-default {
+  background-color: #68889e;
+}
+
+.btn {
+  color: #ffa600;
+  background-color: #68889e;
 }
